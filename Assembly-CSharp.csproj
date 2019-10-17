@@ -56,7 +56,10 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Enemy\Chasing.cs" />
      <Compile Include="Assets\Scripts\Enemy\Damage.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyLife.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+     <Compile Include="Assets\Scripts\Prefabs Scripts\AttackPrefab.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/heric/ProjetosGit/Game/GameAdventure/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
