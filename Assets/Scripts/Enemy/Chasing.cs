@@ -20,19 +20,45 @@ public class Chasing : MonoBehaviour
 
     public LayerMask playerLayer;
 
+    EnemyLife eL;
+    public float attackTimer;
+    public float attackTimerLimit;
+    public Transform attackPoint;
+    public GameObject attackPrefab;
+
+
     // Start is called before the first frame update
     void Start()
     {
-      an = GetComponent<Animator>();    
+      an = GetComponent<Animator>();
+      eL = GetComponent<EnemyLife>();    
     }
 
     // Update is called once per frame
     void Update()
     {
-      an.SetBool("Chasing",isWalking);  
+      an.SetBool("Chasing", isWalking); 
+      an.SetBool("Attacking", readyToAttack);
+
       isWalkingToTheRight = Physics2D.OverlapCircle(pointWalkRight.position, WalkingRadius, playerLayer);
       isWalkingToTheLeft = Physics2D.OverlapCircle(pointWalkLeft.position, WalkingRadius, playerLayer); 
-      readyToAttack = Physics2D.OverlapCircle(pointAttack.position, AttackRadius, playerLayer);   
+      readyToAttack = Physics2D.OverlapCircle(pointAttack.position, AttackRadius, playerLayer); 
+
+
+      if(readyToAttack && attackTimer < attackTimerLimit)
+      {
+        attackTimer += Time.deltaTime;
+      }else
+      {
+        attackTimer = 0;
+      }
+
+      if(attackTimer >= attackTimerLimit)
+      {
+        Instantiate(attackPrefab, attackPoint.position, attackPoint.rotation);
+      }
+
+
 
       if(isWalkingToTheLeft || isWalkingToTheRight)
       {
