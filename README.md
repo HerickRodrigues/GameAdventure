@@ -1,2 +1,6 @@
 # GameAdventure
-Desenvolvimento de um game para um projeto na faculdade.
+[Projeto Faculdade]
+[Desenvolvimento de game]
+
+Plataforma: Unity
+Linguagem: C#
